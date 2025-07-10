@@ -9,7 +9,7 @@ Pomodoro
 
 ### Preview
 
-![프리뷰사진1](blob:https://imgur.com/81dc4f56-2903-43af-8153-e62aed8e48fc)
+![프리뷰사진1](https://i.imgur.com/6T2RXwo.png)
 
 기능설명
 
