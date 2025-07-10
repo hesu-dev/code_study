@@ -6,10 +6,10 @@ Pomodoro
 민희수 | Github: [hesu-dev](https://github.com/hesu-dev)
 
  ***
-바통 - 
 
 ### Preview
 
+![프리뷰사진1](blob:https://imgur.com/81dc4f56-2903-43af-8153-e62aed8e48fc)
 
 기능설명
 
