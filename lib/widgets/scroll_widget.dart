@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:moviehomework/models/movie_model.dart';
 import 'package:moviehomework/services/movieService.dart';
-import 'package:moviehomework/widgets/detail_movie.dart';
+import 'package:moviehomework/widgets/detail_moviePage.dart';
 
-enum ImageType {
-  popular(380),
-  square(150),
-  card(200);
-
-  final double value;
-  const ImageType(this.value);
-}
-
-class ScrollableMovies extends StatelessWidget {
-  final ImageType imageType;
+class MoviesScrollWidget extends StatelessWidget {
+  final double imageHeight;
   final bool visibleTitle;
   final FetchType fetchType;
   final double heghit;
 
-  const ScrollableMovies({
+  const MoviesScrollWidget({
     super.key,
-    required this.imageType,
+    required this.imageHeight,
     required this.fetchType,
     this.visibleTitle = false,
-    this.heghit = 150,
+    this.heghit = 150, //기본값
   });
 
   @override
@@ -42,7 +33,7 @@ class ScrollableMovies extends StatelessWidget {
                   Stack(
                     children: [
                       SizedBox(
-                        width: imageType.value,
+                        width: imageHeight,
                         height: null,
                         child: Column(
                           children: [
@@ -70,7 +61,7 @@ class ScrollableMovies extends StatelessWidget {
                                   child: Image.network(
                                     movie.poster_path,
                                     fit: BoxFit.cover,
-                                    width: imageType.value,
+                                    width: imageHeight,
                                     height: heghit,
                                   ),
                                 ),
@@ -131,7 +122,7 @@ class ScrollableMovies extends StatelessWidget {
               children: List.generate(5, (index) {
                 return Container(
                   margin: const EdgeInsets.only(left: 10),
-                  width: imageType.value,
+                  width: imageHeight,
                   height: heghit,
                   decoration: BoxDecoration(
                     color: Colors.grey[300],

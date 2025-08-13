@@ -33,6 +33,7 @@ class MovieApiService {
       throw Exception("Unexpected API response format");
     }
 
+    // print(***디버그 확인용***);
     // print("movieJsonList:");
     // print(movieJsonList);
 

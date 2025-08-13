@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:moviehomework/services/movieService.dart';
+import 'package:moviehomework/widgets/text_widget.dart';
 
 class DetailMovie extends StatelessWidget {
   final int id;
@@ -17,26 +18,9 @@ class DetailMovie extends StatelessWidget {
     required this.posterpath,
   });
 
-  Widget textWidget(
-    String content, {
-    double fontSize = 18,
-    FontStyle fontStyle = FontStyle.normal,
-    FontWeight fontWeight = FontWeight.w700,
-    Color fontColor = Colors.white,
-  }) {
-    return Text(
-      content,
-      style: TextStyle(
-        fontSize: fontSize,
-        fontStyle: fontStyle,
-        fontWeight: fontWeight,
-        color: fontColor,
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
+    final T = TextWidget();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -66,24 +50,16 @@ class DetailMovie extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //제목
-                    textWidget(title, fontSize: 30),
-
-                    textWidget(
+                    T.textWidget(title, fontSize: 30),
+                    T.textWidget(
                       "\n평점: ${movie.voteAverage.toString()} | ${movie.genres.map((g) => g.name).join(", ")}",
-
                       fontWeight: FontWeight.w400,
                     ),
-                    textWidget(
-                      "개봉일: " +
-                          // ${movie.release_date}
-                          "| ${movie.genres.map((g) => g.name).join(", ")}",
-
+                    T.textWidget(
+                      "${movie.genres.map((g) => g.name).join(", ")}",
                       fontWeight: FontWeight.w400,
                     ),
-                    //개요
-                    // textWidget("\n'StoryLine'"),
-                    textWidget(
+                    T.textWidget(
                       "\n\n${movie.overview}",
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
