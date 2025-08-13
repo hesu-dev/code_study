@@ -12,4 +12,5 @@ final Map<String, String> fontTexts = {
   'new': '신작',
   'every': '매일',
   'top3': 'top3',
+  'movie': '영화',
 };

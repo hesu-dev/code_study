@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:webtoonfix/constants/font_data.dart';
 import 'package:webtoonfix/screens/detail_screen.dart';
 
-class WebtoonPage extends StatelessWidget {
+class MoviePage extends StatelessWidget {
   final String title, thumb, id;
 
-  const WebtoonPage({
+  const MoviePage({
     super.key,
     required this.title,
     required this.thumb,
@@ -41,7 +41,7 @@ class WebtoonPage extends StatelessWidget {
                   ),
                   child: Image.network(
                     thumb,
-                    headers: {'Referer': 'https://comic.naver.com'},
+                    // headers: {'Referer': 'https://comic.naver.com'},
                   ),
                 ),
               ),
@@ -70,30 +70,6 @@ class WebtoonPage extends StatelessWidget {
                   ),
                 ),
               ),
-
-              // if (index < 5)
-              //   Positioned(
-              //     bottom: 0,
-              //     right: 0,
-              //     child: Container(
-              //       padding: const EdgeInsets.symmetric(
-              //         horizontal: 8,
-              //         vertical: 4,
-              //       ),
-              //       decoration: BoxDecoration(
-              //         color: Colors.redAccent,
-              //         borderRadius: BorderRadius.circular(5),
-              //       ),
-              //       child: Text(
-              //         fontTexts['top3'] ?? '',
-              //         style: TextStyle(
-              //           fontSize: 10,
-              //           color: Colors.white,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
             ],
           ),
           SizedBox(height: 5),

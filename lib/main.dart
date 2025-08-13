@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:webtoonfix/screens/home_screen.dart';
+// import 'package:webtoonfix/screens/home_screen.dart';
+import 'package:webtoonfix/screens/movie_screen.dart';
+// import 'package:webtoonfix/screens/homework.dart';
 // import 'package:webtoonfix/service/api_sirvice.dart';
 
 void main() {
@@ -14,7 +16,9 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(),
-      home: HomeScreen(),
+      // home: Homework(),
+      // home: HomeScreen(),
+      home: MovieScreen(),
     );
   }
 }
