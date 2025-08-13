@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authetication/email_screen.dart';
 import 'package:tiktok_clone/features/authetication/login_screen.dart';
-import 'package:tiktok_clone/features/authetication/username_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
+import 'package:tiktok_clone/homework_page/homework0811.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class HomeworkSignUp extends StatelessWidget {
+  const HomeworkSignUp({super.key});
 
   void _onPageTap(BuildContext context, WidgetBuilder builder) {
     Navigator.of(context).push(MaterialPageRoute(builder: builder));
@@ -24,33 +23,14 @@ class SignUpScreen extends StatelessWidget {
             children: [
               Gaps.v80,
               const Text(
-                "Sign Up fot TikTok",
+                "See what's happening in the world right now",
                 style: TextStyle(
                   fontSize: Sizes.size28,
                   fontWeight: FontWeight.w700,
                 ),
-              ),
-              Gaps.v20,
-              const Text(
-                "Create a profile, follpw other accounts, make your own videos, and more",
-                style: TextStyle(fontSize: Sizes.size16, color: Colors.black45),
                 textAlign: TextAlign.center,
               ),
               Gaps.v40,
-              AuthButton(
-                icon: FaIcon(FontAwesomeIcons.user),
-                text: "Use phone or email",
-                onTap: () {
-                  _onPageTap(context, (context) => UsernameScreen());
-                },
-              ),
-              Gaps.v16,
-              AuthButton(
-                icon: FaIcon(FontAwesomeIcons.facebook),
-                text: "Continue with Facebook",
-                onTap: () {},
-              ),
-              Gaps.v16,
               AuthButton(
                 icon: const FaIcon(FontAwesomeIcons.google),
                 text: "Continue with Google",
@@ -62,12 +42,18 @@ class SignUpScreen extends StatelessWidget {
                 text: "Continue with Apple",
                 onTap: () {},
               ),
-              Gaps.v8,
+              Gaps.v96,
 
-              const Text(
-                "By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy to learn how we collect, use, and share your data",
-                style: TextStyle(fontSize: Sizes.size16, color: Colors.black45),
-                textAlign: TextAlign.center,
+              // const Text(
+              //   "By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy to learn how we collect, use, and share your data",
+              //   style: TextStyle(fontSize: Sizes.size16, color: Colors.black45),
+              //   textAlign: TextAlign.center,
+              // ),
+              AuthButton(
+                icon: null,
+                text: "Create account",
+                themeType: ThemeType.dark,
+                onTap: () => _onPageTap(context, (context) => Homework0811()),
               ),
             ],
           ),
