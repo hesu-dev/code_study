@@ -4,16 +4,16 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/login_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
-import 'package:tiktok_clone/homework_page/homework0811.dart';
+import 'package:tiktok_clone/homework_page/homework_signForm.dart';
 
-class Homework0811_2 extends StatefulWidget {
-  const Homework0811_2({super.key});
+class HomeworkSwitch extends StatefulWidget {
+  const HomeworkSwitch({super.key});
 
   @override
-  State<Homework0811_2> createState() => _Homework0811_2State();
+  State<HomeworkSwitch> createState() => _HomeworkSwitchState();
 }
 
-class _Homework0811_2State extends State<Homework0811_2> {
+class _HomeworkSwitchState extends State<HomeworkSwitch> {
   bool _isSwitched = false;
 
   void _onPageTap(BuildContext context, WidgetBuilder builder) {

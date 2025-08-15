@@ -4,7 +4,7 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/login_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
-import 'package:tiktok_clone/homework_page/homework0811.dart';
+import 'package:tiktok_clone/homework_page/homework_signForm.dart';
 
 class HomeworkSignUp extends StatelessWidget {
   const HomeworkSignUp({super.key});
@@ -53,7 +53,7 @@ class HomeworkSignUp extends StatelessWidget {
                 icon: null,
                 text: "Create account",
                 themeType: ThemeType.dark,
-                onTap: () => _onPageTap(context, (context) => Homework0811()),
+                onTap: () => _onPageTap(context, (context) => signForm()),
               ),
             ],
           ),

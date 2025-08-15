@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authetication/login_form_screen.dart';
+import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   void onSignUpTap(BuildContext context) {
     Navigator.of(context).pop();
+  }
+
+  void _onEmailLoginTap(BuildContext context) {
+    Navigator.of(
+      context,
+    ).push(MaterialPageRoute(builder: (context) => LoginFormScreen()));
   }
 
   @override
@@ -16,7 +25,7 @@ class LoginScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
           child: Column(
-            children: const [
+            children: [
               Gaps.v80,
               Text(
                 "Log in fot TikTok",
@@ -29,6 +38,18 @@ class LoginScreen extends StatelessWidget {
               Text(
                 "Create a profile, follpw other accounts, make your own videos, and more",
                 style: TextStyle(fontSize: Sizes.size16, color: Colors.black45),
+              ),
+              Gaps.v20,
+              AuthButton(
+                icon: FaIcon(FontAwesomeIcons.user),
+                text: "Use email",
+                onTap: () => _onEmailLoginTap(context),
+              ),
+              Gaps.v16,
+              AuthButton(
+                icon: const FaIcon(FontAwesomeIcons.apple),
+                text: "Continue with Apple",
+                onTap: () {},
               ),
             ],
           ),

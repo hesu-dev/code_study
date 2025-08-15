@@ -5,6 +5,7 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
 import 'package:tiktok_clone/features/authetication/widgets/form_btn.dart';
+import 'package:tiktok_clone/features/authetication/password_screen.dart';
 
 class EmailScreen extends StatefulWidget {
   const EmailScreen({super.key});
@@ -49,17 +50,17 @@ class _EmailScreenState extends State<EmailScreen> {
     FocusScope.of(context).unfocus();
   }
 
-  void _onNextPageTap() {
-    if (_userEmail.isEmpty) return;
+  void _onSubmit() {
+    if (_userEmail.isEmpty || _isEmailValid() != null) return;
     Navigator.of(
       context,
-    ).push(MaterialPageRoute(builder: (context) => const EmailScreen()));
+    ).push(MaterialPageRoute(builder: (context) => const PasswordScreen()));
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _onScaffoldTap(),
+      onTap: _onScaffoldTap,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -91,6 +92,7 @@ class _EmailScreenState extends State<EmailScreen> {
               Gaps.v16,
               TextField(
                 controller: _useremailController,
+                onEditingComplete: _onSubmit,
                 keyboardType: TextInputType.emailAddress,
                 autocorrect: false,
                 decoration: InputDecoration(
@@ -108,9 +110,11 @@ class _EmailScreenState extends State<EmailScreen> {
               Gaps.v40,
               GestureDetector(
                 onTap: () {
-                  _onNextPageTap();
+                  _onSubmit();
                 },
-                child: FormButton(disable: _userEmail.isEmpty),
+                child: FormButton(
+                  disable: _userEmail.isEmpty || _isEmailValid() != null,
+                ),
               ),
             ],
           ),

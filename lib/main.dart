@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authetication/birthday_screen.dart';
+import 'package:tiktok_clone/features/authetication/password_screen.dart';
 import 'package:tiktok_clone/features/authetication/sign_up.dart';
 import 'package:tiktok_clone/homework_page/homework_sign_up.dart';
 
@@ -13,6 +15,7 @@ class TicTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      // debugShowMaterialGrid: false,
       debugShowCheckedModeBanner: false,
       title: 'TicTok Clone',
       theme: ThemeData(
@@ -21,8 +24,7 @@ class TicTokApp extends StatelessWidget {
           seedColor: Color.fromARGB(255, 255, 73, 97),
         ),
         appBarTheme: const AppBarTheme(
-          // foregroundColor: Colors.black,
-          backgroundColor: Color.fromARGB(255, 255, 15, 15),
+          // backgroundColor: Color.fromARGB(255, 255, 15, 15),
           titleTextStyle: TextStyle(
             color: Colors.black,
             fontSize: Sizes.size16 + Sizes.size2,
@@ -30,8 +32,10 @@ class TicTokApp extends StatelessWidget {
           ),
         ),
       ),
-      // home: SignUpScreen(),
-      home: HomeworkSignUp(),
+      // home: Container(),
+      home: SignUpScreen(),
+      // home: BirthdayScreen(),
+      // home: HomeworkSignUp(),
     );
   }
 }

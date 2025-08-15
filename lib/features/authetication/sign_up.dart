@@ -63,8 +63,7 @@ class SignUpScreen extends StatelessWidget {
                 onTap: () {},
               ),
               Gaps.v8,
-
-              const Text(
+              Text(
                 "By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy to learn how we collect, use, and share your data",
                 style: TextStyle(fontSize: Sizes.size16, color: Colors.black45),
                 textAlign: TextAlign.center,
