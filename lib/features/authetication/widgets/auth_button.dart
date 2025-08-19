@@ -14,11 +14,24 @@ enum ThemeType {
   }
 }
 
+enum Rounding {
+  border('border'),
+  square('square');
+
+  const Rounding(this.value);
+  final String value;
+
+  factory Rounding.getByCode(String code) {
+    return Rounding.values.firstWhere((value) => value.value == code);
+  }
+}
+
 class AuthButton extends StatelessWidget {
   final FaIcon? icon;
   final String text;
   final VoidCallback? onTap;
   final ThemeType themeType;
+  final Rounding rounding;
 
   const AuthButton({
     super.key,
@@ -26,6 +39,7 @@ class AuthButton extends StatelessWidget {
     required this.icon,
     required this.onTap,
     this.themeType = ThemeType.light,
+    this.rounding = Rounding.square,
   });
 
   @override
@@ -37,6 +51,9 @@ class AuthButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: themeType == ThemeType.light ? Colors.white : Colors.black,
           border: Border.all(color: Colors.grey.shade200, width: Sizes.size2),
+          borderRadius: rounding == Rounding.border
+              ? BorderRadius.circular(30)
+              : BorderRadius.circular(0),
         ),
         child: InkWell(
           onTap: onTap,

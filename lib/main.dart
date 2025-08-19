@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/birthday_screen.dart';
+import 'package:tiktok_clone/features/authetication/login_screen.dart';
 import 'package:tiktok_clone/features/authetication/password_screen.dart';
 import 'package:tiktok_clone/features/authetication/sign_up.dart';
-import 'package:tiktok_clone/homework_page/homework_sign_up.dart';
+import 'package:tiktok_clone/homework_lib/homework_authetication/sign_up_screen.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
+import 'package:tiktok_clone/route/app_routes.dart';
 
 void main() {
   runApp(const TicTokApp());
@@ -15,7 +18,9 @@ class TicTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // debugShowMaterialGrid: false,
+      // initialRoute: AppRoutes.interest,
+      // routes: AppRoutes.routes,
+      home: MainNavi(),
       debugShowCheckedModeBanner: false,
       title: 'TicTok Clone',
       theme: ThemeData(
@@ -32,10 +37,6 @@ class TicTokApp extends StatelessWidget {
           ),
         ),
       ),
-      // home: Container(),
-      home: SignUpScreen(),
-      // home: BirthdayScreen(),
-      // home: HomeworkSignUp(),
     );
   }
 }

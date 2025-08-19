@@ -4,21 +4,17 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/login_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
-import 'package:tiktok_clone/homework_page/homework_signForm.dart';
+import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
 
-class HomeworkSwitch extends StatefulWidget {
-  const HomeworkSwitch({super.key});
+class SwitchPage extends StatefulWidget {
+  const SwitchPage({super.key});
 
   @override
-  State<HomeworkSwitch> createState() => _HomeworkSwitchState();
+  State<SwitchPage> createState() => _SwitchPageState();
 }
 
-class _HomeworkSwitchState extends State<HomeworkSwitch> {
+class _SwitchPageState extends State<SwitchPage> {
   bool _isSwitched = false;
-
-  void _onPageTap(BuildContext context, WidgetBuilder builder) {
-    Navigator.of(context).push(MaterialPageRoute(builder: builder));
-  }
 
   @override
   Widget build(BuildContext context) {
