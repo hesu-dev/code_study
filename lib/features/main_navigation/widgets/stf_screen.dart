@@ -18,7 +18,6 @@ class _StfScreenState extends State<StfScreen> {
 
   @override
   void dispose() {
-    print(_clicks);
     super.dispose();
   }
 
@@ -28,7 +27,7 @@ class _StfScreenState extends State<StfScreen> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("$_increase"),
+          Text("$_clicks", style: const TextStyle(fontSize: 48)),
           TextButton(onPressed: _increase, child: Text('+')),
         ],
       ),

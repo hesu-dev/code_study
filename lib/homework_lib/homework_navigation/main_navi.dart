@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/hw_nav_tab.dart';
-import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_page.dart';
+import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_nav_tab.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/post_page.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_write_sheet.dart';
 
 class MainNavi extends StatefulWidget {
   const MainNavi({super.key});
@@ -13,16 +15,14 @@ class MainNavi extends StatefulWidget {
 
 class _MainNaviState extends State<MainNavi> {
   int _seletedIndex = 0;
-  final screens = [
-    Center(child: PostPage()), //1
-    Center(child: Text('Home')), //2
-    Center(child: Text('Search')), //3
-    Center(child: Text('Search')), //4
-  ];
+  int _lastIndex = 0;
 
   void _onTap(int index) {
     setState(() {
       _seletedIndex = index;
+      if (_seletedIndex != 2) {
+        _lastIndex = _seletedIndex;
+      }
       // print(_seletedIndex);
     });
   }
@@ -31,7 +31,38 @@ class _MainNaviState extends State<MainNavi> {
 
   @override
   Widget build(BuildContext context) {
+    if (_seletedIndex == 2) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        showModalBottomSheet(
+          backgroundColor: Colors.white,
+          context: context,
+          isScrollControlled: false,
+          showDragHandle: true,
+          builder: (context) {
+            final screenHeight = MediaQuery.of(context).size.height;
+            return SizedBox(height: screenHeight, child: PostWriteSheet());
+          },
+        ).then((_) {
+          setState(() {
+            _seletedIndex = _lastIndex;
+          });
+        });
+      });
+    }
+
+    final screens = [
+      Offstage(offstage: _seletedIndex != 0, child: PostPage()),
+      Offstage(offstage: _seletedIndex != 1, child: Text('검색')), //1
+      Offstage(offstage: _seletedIndex != 2, child: Text('새글')), //2
+      Offstage(
+        offstage: _seletedIndex != 3,
+        child: Text('내정보'),
+      ), //3 SerachPage()
+      Offstage(offstage: _seletedIndex != 4, child: Text('디엠')), //4
+    ];
+
     return Scaffold(
+      appBar: PersonalAppbar(back: false, title: "로고"),
       body: screens[_seletedIndex],
       bottomNavigationBar: BottomAppBar(
         color: Colors.white,
@@ -63,6 +94,12 @@ class _MainNaviState extends State<MainNavi> {
                 icon: FontAwesomeIcons.user,
                 selectedIcon: FontAwesomeIcons.solidUser,
                 onTap: () => _onTap(3),
+              ),
+              HwNavTab(
+                isSelected: _seletedIndex == 4,
+                icon: FontAwesomeIcons.message,
+                selectedIcon: FontAwesomeIcons.solidMessage,
+                onTap: () => _onTap(4),
               ),
             ],
           ),

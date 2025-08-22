@@ -11,6 +11,7 @@ import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dar
 import 'package:tiktok_clone/homework_lib/homework_authetication/password_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/sign_up_screen.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 import 'package:tiktok_clone/homework_lib/homework_onboarding/interests_page.dart';
 
 class AppRoutes {
@@ -23,6 +24,7 @@ class AppRoutes {
   static const String tutorial = '/tutorial';
 
   //숙제용
+  static String hwhome = '/hwhome';
   static const String intereshw = '/intereshw';
   static const String hwsignup = '/hwSignUp';
   static const String signfrom = '/signFrom';
@@ -43,6 +45,7 @@ class AppRoutes {
     login: (context) => const LoginScreen(),
 
     //숙제용
+    hwhome: (context) => MainNavi(),
     hwsignup: (context) => const HomeworkSignUpScreen(),
     signfrom: (context) => const Signform(),
     pinNumber: (context) {

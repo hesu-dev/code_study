@@ -7,14 +7,14 @@ enum Direction { right, left }
 
 enum Page { first, second }
 
-class TutorialScreen extends StatefulWidget {
-  const TutorialScreen({super.key});
+class TutorialPage extends StatefulWidget {
+  const TutorialPage({super.key});
 
   @override
-  State<TutorialScreen> createState() => _TutorialScreenState();
+  State<TutorialPage> createState() => _TutorialPageState();
 }
 
-class _TutorialScreenState extends State<TutorialScreen> {
+class _TutorialPageState extends State<TutorialPage> {
   Direction _direction = Direction.right;
   Page _showingPage = Page.first;
 
@@ -44,14 +44,14 @@ class _TutorialScreenState extends State<TutorialScreen> {
     }
   }
 
-  void _onNextTap() {
-    Navigator.pushNamed(context, "/home");
-  }
-
   void _togglePage() {
     setState(() {
       _showingPage = Page.second;
     });
+  }
+
+  void _onNextTap() {
+    Navigator.pushNamed(context, "/home");
   }
 
   @override
@@ -106,7 +106,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       ),
                     ),
                     Text(
-                      "타이틀",
+                      "지금 시작하세요!",
                       style: TextStyle(
                         fontSize: Sizes.size40,
                         fontWeight: FontWeight.bold,
@@ -123,11 +123,9 @@ class _TutorialScreenState extends State<TutorialScreen> {
           ),
         ),
         bottomNavigationBar: BottomAppBar(
-          height: 120,
+          height: 100,
           color: Colors.white,
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
               Row(
@@ -147,7 +145,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
 
                   _showingPage != Page.second ? Colors.white : Colors.black,
                   onTap: () {
-                    if (_showingPage != Page.second) {
+                    if (_showingPage == Page.first) {
                       _togglePage();
                     } else {
                       _onNextTap();
@@ -155,23 +153,6 @@ class _TutorialScreenState extends State<TutorialScreen> {
                   },
                 ),
               ),
-              // AnimatedOpacity(
-              //   duration: Duration(milliseconds: 300),
-              //   opacity: _showingPage == Page.second ? 1 : 0,
-              //   child: SizedBox(
-              //     width: double.infinity,
-              //     child: IgnorePointer(
-              //       ignoring: _showingPage != Page.second,
-              //       child: BottomBtn(
-              //         "앱 시작하기", //Enter the app!
-              //         Colors.black,
-              //         onTap: () {
-              //           _onNextTap();
-              //         },
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

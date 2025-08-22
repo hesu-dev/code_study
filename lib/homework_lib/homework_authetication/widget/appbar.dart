@@ -3,9 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
 class PersonalAppbar extends StatelessWidget implements PreferredSizeWidget {
-  PersonalAppbar({super.key, required this.title});
-
   String title;
+  bool back;
+
+  PersonalAppbar({super.key, this.back = false, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +15,14 @@ class PersonalAppbar extends StatelessWidget implements PreferredSizeWidget {
       // shadowColor: Colors.white,
       // foregroundColor: Colors.white,
       surfaceTintColor: Colors.white,
-      leading: IconButton(
-        onPressed: () {
-          Navigator.maybePop(context);
-        },
-        icon: FaIcon(FontAwesomeIcons.arrowLeft),
-      ),
+      leading: back == true
+          ? IconButton(
+              onPressed: () {
+                Navigator.maybePop(context);
+              },
+              icon: FaIcon(FontAwesomeIcons.arrowLeft),
+            )
+          : Container(),
       title: Text(title),
     );
   }
