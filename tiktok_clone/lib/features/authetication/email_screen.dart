@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart' show FaIcon;
-import 'package:go_router/go_router.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
 import 'package:tiktok_clone/features/authetication/widgets/form_btn.dart';
 import 'package:tiktok_clone/features/authetication/password_screen.dart';
 

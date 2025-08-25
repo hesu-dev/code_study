@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
 class BottomBtn extends StatelessWidget {
-  BottomBtn(this.text, this.color, {super.key, required this.onTap});
+  const BottomBtn(this.text, this.color, {super.key, required this.onTap});
 
   final String text;
   final Color color;

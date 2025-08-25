@@ -1,8 +1,7 @@
-// ignore_for_file: camel_case_types, non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dart';

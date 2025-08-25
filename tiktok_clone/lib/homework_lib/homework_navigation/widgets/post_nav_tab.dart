@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 
 class HwNavTab extends StatelessWidget {
-  HwNavTab({
+  const HwNavTab({
     required this.isSelected,
     required this.icon,
     required this.selectedIcon,

@@ -50,37 +50,4 @@ class OtpBox extends StatelessWidget {
       ],
     );
   }
-
-  Widget _buildBox(BuildContext context, String char) {
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 120),
-      curve: Curves.easeOut,
-      width: Sizes.size40,
-      height: Sizes.size60,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Text(
-            char,
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 1,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Container(
-            width: 48,
-            height: 3,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade600,
-              borderRadius: BorderRadius.circular(2),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/features/videos/widgets/%20video_post.dart';
 
@@ -13,7 +11,7 @@ class VideoTimelineScreen extends StatefulWidget {
 class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
   final PageController _pageController = PageController();
 
-  int _itemCount = 4;
+  final int _itemCount = 4;
 
   // List<Color> colors = [Colors.blue, Colors.red, Colors.yellow, Colors.teal];
   final Duration _scrollDuration = const Duration(milliseconds: 250);

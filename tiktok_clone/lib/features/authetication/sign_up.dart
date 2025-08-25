@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authetication/email_screen.dart';
 import 'package:tiktok_clone/features/authetication/login_screen.dart';
 import 'package:tiktok_clone/features/authetication/username_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
@@ -86,6 +85,13 @@ class SignUpScreen extends StatelessWidget {
                 onTap: () => _onPageTap(context, (context) => LoginScreen()),
                 child: Text(
                   "Log in",
+                  style: TextStyle(color: Theme.of(context).primaryColor),
+                ),
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, "/home"),
+                child: Text(
+                  " / Home",
                   style: TextStyle(color: Theme.of(context).primaryColor),
                 ),
               ),

@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
 
 class PostWriteSheet extends StatelessWidget {
@@ -11,7 +14,7 @@ class PostWriteSheet extends StatelessWidget {
       appBar: PersonalAppbar(title: "새 글 작성"),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(Sizes.size20),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,

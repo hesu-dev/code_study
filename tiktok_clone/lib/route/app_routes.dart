@@ -13,11 +13,12 @@ import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/sign_up_screen.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 import 'package:tiktok_clone/homework_lib/homework_onboarding/interests_page.dart';
+import 'package:tiktok_clone/main_btn_page.dart';
 
 class AppRoutes {
-  static String home = '/home';
-
+  static const String mainbtnpage = 'mainBtnPage';
   //클론
+  static const String home = '/home';
   static const String signup = '/sigUp';
   static const String login = '/login';
   static const String interest = '/interest';
@@ -36,9 +37,10 @@ class AppRoutes {
   // static const String cookie = '/cookie';
 
   static Map<String, WidgetBuilder> routes = {
-    home: (context) => MainNavigationScreen(),
+    mainbtnpage: (context) => MainBtnPage(),
 
     //클론
+    home: (context) => MainNavigationScreen(),
     signup: (context) => const SignUpScreen(),
     interest: (context) => const InterestsScreen(),
     tutorial: (context) => const TutorialScreen(),

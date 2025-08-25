@@ -1,5 +1,8 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_thread.dart';
 
 class PostPage extends StatefulWidget {
@@ -47,8 +50,12 @@ class _PostPageState extends State<PostPage> {
   Widget build(BuildContext context) {
     return RefreshIndicator(
       onRefresh: _onRefresh,
+      displacement: 50,
+      edgeOffset: 0,
+      backgroundColor: Colors.white,
+      color: Colors.black,
       child: ListView.builder(
-        padding: const EdgeInsets.only(bottom: 16),
+        padding: const EdgeInsets.only(bottom: Sizes.size20),
         itemCount: posts.length,
         itemBuilder: (context, index) {
           final post = posts[index];

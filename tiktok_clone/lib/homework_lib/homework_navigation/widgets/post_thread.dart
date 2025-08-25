@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_bottom_sheet.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_header.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_replie.dart';
 

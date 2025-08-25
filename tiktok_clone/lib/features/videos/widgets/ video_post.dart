@@ -1,3 +1,6 @@
+// ignore_for_file: file_names
+
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -28,6 +31,8 @@ class _VideoPostState extends State<VideoPost>
   late final AnimationController _animationController;
 
   bool _isPaused = false;
+  // ignore: deprecated_member_use
+  final String link = faker.image.image(random: true);
 
   void _onVideoChange() {
     if (_videoPlayerController.value.isInitialized) {
@@ -77,9 +82,13 @@ class _VideoPostState extends State<VideoPost>
         !_videoPlayerController.value.isPlaying) {
       _videoPlayerController.play();
     }
+    if (_videoPlayerController.value.isPlaying && info.visibleFraction == 0) {
+      _onTogglePause();
+    }
   }
 
   void _onTogglePause() {
+    if (!mounted) return;
     if (_videoPlayerController.value.isPlaying) {
       _videoPlayerController.pause();
       _animationController.reverse();
@@ -98,6 +107,7 @@ class _VideoPostState extends State<VideoPost>
     }
     await showModalBottomSheet(
       context: context,
+      isScrollControlled: true,
       backgroundColor: Colors.transparent,
       builder: (context) => const VideoComments(),
     );
@@ -148,7 +158,7 @@ class _VideoPostState extends State<VideoPost>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text(
-                  "@니꼬",
+                  "@넬님",
                   style: TextStyle(
                     fontSize: Sizes.size20,
                     color: Colors.white,
@@ -157,7 +167,7 @@ class _VideoPostState extends State<VideoPost>
                 ),
                 Gaps.v10,
                 Text(
-                  "This is my house in Thailand!!!",
+                  "꽁냥이 챌린지 - 압도적 러블리 1위 츄",
                   style: TextStyle(fontSize: Sizes.size16, color: Colors.white),
                 ),
               ],
@@ -168,26 +178,24 @@ class _VideoPostState extends State<VideoPost>
             right: 10,
             child: Column(
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 25,
                   backgroundColor: Colors.black,
                   foregroundColor: Colors.white,
-                  foregroundImage: NetworkImage(
-                    "https://avatars.githubusercontent.com/u/3612017",
-                  ),
-                  child: Text("니꼬"),
+                  foregroundImage: NetworkImage(link),
+                  child: Text("넬님"),
                 ),
                 Gaps.v24,
                 const VideoButton(
                   icon: FontAwesomeIcons.solidHeart,
-                  text: "2.9M",
+                  text: "98.9M",
                 ),
                 Gaps.v24,
                 GestureDetector(
                   onTap: () => _onCommentsTap(context),
                   child: const VideoButton(
                     icon: FontAwesomeIcons.solidComment,
-                    text: "33K",
+                    text: "77K",
                   ),
                 ),
                 Gaps.v24,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
 class InterrestButton extends StatefulWidget {
-  const InterrestButton({Key? key, required this.interest}) : super(key: key);
+  const InterrestButton({super.key, required this.interest});
 
   final String interest;
 

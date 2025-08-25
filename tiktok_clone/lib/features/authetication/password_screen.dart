@@ -1,12 +1,11 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authetication/birthday_screen.dart';
-import 'package:tiktok_clone/features/authetication/widgets/auth_button.dart';
 import 'package:tiktok_clone/features/authetication/widgets/form_btn.dart';
-import 'package:tiktok_clone/features/authetication/password_screen.dart';
 
 class PasswordScreen extends StatefulWidget {
   const PasswordScreen({super.key});
@@ -24,7 +23,6 @@ class _PasswordScreenState extends State<PasswordScreen> {
   final FocusNode _rePasswordFocusNode = FocusNode();
 
   String _userPassword = "";
-  String _userRePassword = "";
   String _warningMsg = "";
 
   bool _obscureText = true;
@@ -67,12 +65,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
     if (hasFocus && hasText && !rehasText) {
       _warningMsg = "8 to 20 characters.";
       _msgVisibility = true;
-      print("hey1");
       return;
     }
 
     if (rehasFocus && hasText) {
-      print("hey2");
       if (_userPasswordController.text == _userRePasswordController.text) {
         _warningMsg = "8 to 20 characters.";
       } else {

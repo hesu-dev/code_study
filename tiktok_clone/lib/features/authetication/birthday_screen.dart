@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authetication/email_screen.dart';
 import 'package:tiktok_clone/features/authetication/widgets/form_btn.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 
@@ -15,7 +14,6 @@ class BirthdayScreen extends StatefulWidget {
 
 class _BirthdayScreenState extends State<BirthdayScreen> {
   final TextEditingController _birthDayController = TextEditingController();
-  String _userBirthday = "";
 
   DateTime initialDate = DateTime.now();
 

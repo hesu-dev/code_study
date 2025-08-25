@@ -69,6 +69,7 @@ flutter:
   assets:
     - assets/img/onboarding1.png
     - assets/img/onboarding2.png
+    - assets/img/placeholder.jpg
     - assets/videos/video.mp4
     
   # An image asset can refer to one or more resolution-specific "variants", see

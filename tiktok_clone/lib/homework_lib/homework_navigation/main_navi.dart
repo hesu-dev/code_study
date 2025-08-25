@@ -1,9 +1,13 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/activity_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_nav_tab.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/post_page.dart';
+import 'package:tiktok_clone/homework_lib/homework_navigation/search_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_write_sheet.dart';
 
 class MainNavi extends StatefulWidget {
@@ -52,12 +56,9 @@ class _MainNaviState extends State<MainNavi> {
 
     final screens = [
       Offstage(offstage: _seletedIndex != 0, child: PostPage()),
-      Offstage(offstage: _seletedIndex != 1, child: Text('검색')), //1
-      Offstage(offstage: _seletedIndex != 2, child: Text('새글')), //2
-      Offstage(
-        offstage: _seletedIndex != 3,
-        child: Text('내정보'),
-      ), //3 SerachPage()
+      Offstage(offstage: _seletedIndex != 1, child: SearchPage()), //1
+      Offstage(offstage: _seletedIndex != 2, child: Container()), //2
+      Offstage(offstage: _seletedIndex != 3, child: ActivityPage()),
       Offstage(offstage: _seletedIndex != 4, child: Text('디엠')), //4
     ];
 

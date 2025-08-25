@@ -18,7 +18,7 @@ class Media extends StatelessWidget {
 }
 
 class ActionRow extends StatelessWidget {
-  const ActionRow();
+  const ActionRow({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +62,7 @@ class StatsRow extends StatelessWidget {
   final int replies;
   final int likes;
 
-  const StatsRow({required this.replies, required this.likes});
+  const StatsRow({super.key, required this.replies, required this.likes});
 
   @override
   Widget build(BuildContext context) {

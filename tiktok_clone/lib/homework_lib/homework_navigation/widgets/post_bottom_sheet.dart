@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
@@ -27,16 +29,15 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
       '전기통신사업법에 의거한 불법을 신고합니다',
       '의심스럽거나 스팸입니다',
       '오해의 소지를 담고 있습니다.',
-      // '자해 또는 자살의도를 표현하고 있습니다.',
+      '자해 또는 자살의도를 표현하고 있습니다.',
     ];
 
     return SizedBox(
-      // height: 300,
+      // height: 700,
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               children: [
@@ -85,34 +86,44 @@ class _CustomBottomSheetState extends State<CustomBottomSheet> {
             ),
             Offstage(
               offstage: _change == true,
-              child: Column(
-                children: [
-                  ListView.separated(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: reportReasons.length,
-                    separatorBuilder: (context, index) =>
-                        const Divider(thickness: 0.5),
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () => print('${reportReasons[index]} 클릭'),
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: Sizes.size18,
-                            vertical: 16,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: reportReasons.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text('선택하신 사유로 해당 게시글이 신고 되었습니다'),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                            print('${reportReasons[index]} 클릭');
+                            Navigator.of(context).pop();
+                            // SnackBar("신고되었습니다", content: null);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: Sizes.size18,
+                              vertical: 16,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(reportReasons[index]),
+                                const FaIcon(FontAwesomeIcons.arrowRight),
+                              ],
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(reportReasons[index]),
-                              const FaIcon(FontAwesomeIcons.arrowRight),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
 
               //               Why are you reporting this thread?
