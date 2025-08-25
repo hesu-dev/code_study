@@ -18,7 +18,7 @@ class _InboxScreenState extends State<InboxScreen> {
     ).push(MaterialPageRoute(builder: (context) => const ChatsScreen()));
   }
 
-  void _onActivityTap() {
+  void _onActivityTap(BuildContext context) {
     Navigator.of(
       context,
     ).push(MaterialPageRoute(builder: (context) => const ActivityScreen()));
@@ -40,12 +40,12 @@ class _InboxScreenState extends State<InboxScreen> {
       body: ListView(
         children: [
           ListTile(
-            onTap: () => _onActivityTap,
+            onTap: () => _onActivityTap(context),
             title: const Text(
               'Activity',
               style: TextStyle(
                 fontWeight: FontWeight.w600,
-                fontSize: Sizes.size16,
+                fontSize: Sizes.size20,
               ),
             ),
             trailing: const FaIcon(
