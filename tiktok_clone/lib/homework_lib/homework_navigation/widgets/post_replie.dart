@@ -17,17 +17,33 @@ class Media extends StatelessWidget {
   }
 }
 
-class ActionRow extends StatelessWidget {
+class ActionRow extends StatefulWidget {
   const ActionRow({super.key});
 
   @override
+  State<ActionRow> createState() => _ActionRowState();
+}
+
+class _ActionRowState extends State<ActionRow> {
+  @override
   Widget build(BuildContext context) {
-    final iconSize = 26.0;
+    List<Map<String, bool>> clickList = [
+      {"heart": true, "retweet": false},
+    ];
+
+    final iconSize = 20.0;
     return Row(
       children: [
         IconButton(
-          icon: const Icon(CupertinoIcons.heart),
-          onPressed: () {},
+          icon: Icon(
+            (clickList[0]["heart"] ?? false)
+                ? CupertinoIcons.heart
+                : CupertinoIcons.heart_fill,
+          ),
+          onPressed: () {
+            print(clickList);
+            setState(() {});
+          },
           iconSize: iconSize,
           splashRadius: 22,
         ),

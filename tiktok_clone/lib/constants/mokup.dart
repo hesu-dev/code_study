@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone/homework_lib/homework_authetication/sign_up_screen.dart';
+import 'package:tiktok_clone/homework_lib/homework_user/widgets/user_setting_privacy.dart';
+
 const interests = [
   "Daily Life",
   "Comedy",
@@ -161,3 +166,159 @@ const interestsWithSub = {
     "Running Tips",
   ],
 };
+
+const postList = [
+  {
+    "seq": 1,
+    "quote": true,
+    "document": "오늘 오하아사 1위~",
+    "createdAt": "2025-08-26T10:15:00Z",
+    "picture": "",
+    "replies": [
+      {
+        "seq": 1,
+        "content": "행운의 컬러는 빨간색이래! 임티 선물 보내요~",
+        "userId": "user123",
+        "date": "2025-08-26T10:20:00Z",
+      },
+      {
+        "seq": 2,
+        "content": "꺄 완전 럭키비키잔아~ 넬님 축하해요!",
+        "userId": "sunlover",
+        "date": "2025-08-26T10:22:00Z",
+      },
+    ],
+  },
+  {
+    "seq": 2,
+    "quote": false,
+    "document": "치킨을 시켜먹기로 했어요",
+    "createdAt": "2025-08-25T14:30:00Z",
+    "picture":
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjMn0JeBQgivTVxBVAKtg1-xBR8LbJXNo6-Q&s",
+    "replies": [
+      {
+        "seq": 1,
+        "userId": "러브러브러브버그",
+        "content": "맛잘알굿, 황올 아니면 상대안함",
+        "date": "2025-08-25T14:35:00Z",
+      },
+    ],
+  },
+  {
+    "seq": 3,
+    "quote": false,
+    "document": "시험 떨어짐..SO SAD",
+    "createdAt": "2025-08-24T09:00:00Z",
+    "picture": "",
+    "replies": [],
+  },
+  {
+    "seq": 4,
+    "quote": false,
+    "document": "마비노기 모바일 재밌다 히히",
+    "picture": "",
+    "createdAt": "2025-08-26T11:45:00Z",
+    "replies": [
+      {
+        "seq": 1,
+        "content": "이번 업뎃 사항 보셧어요??",
+        "userId": "foodie99",
+        "date": "2025-08-26T11:50:00Z",
+      },
+      {
+        "seq": 2,
+        "content": "어이 길드원! 지금 당장 로그인 ㄱ다",
+        "userId": "snacklover",
+        "date": "2025-08-26T11:55:00Z",
+      },
+    ],
+  },
+  {
+    "seq": 5,
+    "quote": true,
+    "document": "서점에서 나는 책냄새는 왜 이렇게 좋을까?",
+    "createdAt": "2025-08-26T07:30:00Z",
+    "picture":
+        "https://image-cdn.hypb.st/https%3A%2F%2Fkr.hypebeast.com%2Ffiles%2F2019%2F09%2Fart-book-store-seoul-recommendation-the-book-society-your-mind-post-poetics-ofr-2019-1.jpeg?q=75&w=800&cbr=1&fit=max",
+    "replies": [],
+  },
+];
+
+final settingList = [
+  {
+    "icon": FontAwesomeIcons.userPlus,
+    "title": "팔로우 목록",
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
+    "page": UserSettingPrivacyPage(),
+  },
+  const {
+    "icon": FontAwesomeIcons.bell,
+    "title": "알림",
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
+    "page": UserSettingPrivacyPage(),
+  },
+  const {
+    "icon": FontAwesomeIcons.lock,
+    "title": "개인정보",
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
+    "page": UserSettingPrivacyPage(),
+  },
+  const {
+    "icon": FontAwesomeIcons.user,
+    "title": "계정",
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
+    "page": UserSettingPrivacyPage(),
+  },
+  const {
+    "icon": FontAwesomeIcons.info,
+    "title": "도움말",
+    "trailing": FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
+    "page": UserSettingPrivacyPage(),
+  },
+  const {
+    "icon": null,
+    "title": "계정 로그아웃",
+    "trailing": FaIcon(FontAwesomeIcons.signOutAlt),
+    "page": HomeworkSignUpScreen(),
+  },
+];
+
+final privacyList = [
+  {
+    "icon": FontAwesomeIcons.lock,
+    "title": "계정 잠금",
+    "trailing": Switch(value: true, onChanged: (val) {}),
+  },
+  const {
+    "icon": FontAwesomeIcons.bell,
+    "title": "알림 멘션",
+    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+  },
+  const {
+    "icon": FontAwesomeIcons.bellSlash,
+    "title": "뮤트 목록",
+    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+  },
+  const {
+    "icon": FontAwesomeIcons.eyeSlash,
+    "title": "뮤트 단어",
+    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+  },
+  const {
+    "icon": null,
+    "title": "기타 개인 정보",
+    "trailing": const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
+  },
+
+  const {
+    "icon": FontAwesomeIcons.infoCircle,
+    "title": "나의 follow",
+    "trailing": const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
+  },
+  const {
+    "icon": FontAwesomeIcons.x,
+    "title": "block 목록",
+    "trailing": const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
+  },
+];

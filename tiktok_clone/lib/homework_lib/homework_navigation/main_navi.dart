@@ -9,6 +9,7 @@ import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_nav_t
 import 'package:tiktok_clone/homework_lib/homework_navigation/post_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/search_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_write_sheet.dart';
+import 'package:tiktok_clone/homework_lib/homework_user/user_profile_page.dart';
 
 class MainNavi extends StatefulWidget {
   const MainNavi({super.key});
@@ -59,7 +60,7 @@ class _MainNaviState extends State<MainNavi> {
       Offstage(offstage: _seletedIndex != 1, child: SearchPage()), //1
       Offstage(offstage: _seletedIndex != 2, child: Container()), //2
       Offstage(offstage: _seletedIndex != 3, child: ActivityPage()),
-      Offstage(offstage: _seletedIndex != 4, child: Text('디엠')), //4
+      Offstage(offstage: _seletedIndex != 4, child: UserProfilePage()), //4
     ];
 
     return Scaffold(
@@ -92,14 +93,14 @@ class _MainNaviState extends State<MainNavi> {
               ),
               HwNavTab(
                 isSelected: _seletedIndex == 3,
-                icon: FontAwesomeIcons.user,
-                selectedIcon: FontAwesomeIcons.solidUser,
+                icon: FontAwesomeIcons.heart,
+                selectedIcon: FontAwesomeIcons.heartPulse,
                 onTap: () => _onTap(3),
               ),
               HwNavTab(
                 isSelected: _seletedIndex == 4,
-                icon: FontAwesomeIcons.message,
-                selectedIcon: FontAwesomeIcons.solidMessage,
+                icon: FontAwesomeIcons.user,
+                selectedIcon: FontAwesomeIcons.solidUser,
                 onTap: () => _onTap(4),
               ),
             ],
