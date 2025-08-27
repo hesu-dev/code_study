@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tiktok_clone/features/authetication/sign_up.dart';
+import 'package:tiktok_clone/features/authentication/sign_up.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 
 class MainBtnPage extends StatelessWidget {

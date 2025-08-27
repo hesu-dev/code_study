@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/authetication/widgets/form_btn.dart';
+import 'package:tiktok_clone/features/authentication/widgets/form_btn.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
 
 class PasswordPage extends StatefulWidget {

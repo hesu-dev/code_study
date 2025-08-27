@@ -9,16 +9,20 @@ import 'package:tiktok_clone/features/authentication/widgets/auth_button.dart';
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
-  void _onLoginTap(BuildContext context) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const LoginScreen()));
-  }
+  // void _onLoginTap(BuildContext context) {
+  //   Navigator.of(
+  //     context,
+  //   ).push(MaterialPageRoute(builder: (context) => const LoginScreen()));
+  // }
 
-  void _onEmailTap(BuildContext context) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const UsernameScreen()));
+  // void _onEmailTap(BuildContext context) {
+  //   Navigator.of(
+  //     context,
+  //   ).push(MaterialPageRoute(builder: (context) => const UsernameScreen()));
+  // }
+
+  void _onPageTap(BuildContext context, WidgetBuilder builder) {
+    Navigator.of(context).push(MaterialPageRoute(builder: builder));
   }
 
   @override
@@ -37,19 +41,18 @@ class SignUpScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: Sizes.size40),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 children: [
                   Gaps.v80,
                   const Text(
-                    "Sign up for TikTok",
+                    "Sign Up fot TikTok",
                     style: TextStyle(
-                      fontSize: Sizes.size24,
+                      fontSize: Sizes.size28,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Gaps.v20,
                   const Text(
-                    "Create a profile, follow other accounts, make your own videos, and more.",
+                    "Create a profile, follpw other accounts, make your own videos, and more",
                     style: TextStyle(
                       fontSize: Sizes.size16,
                       color: Colors.black45,
@@ -57,71 +60,67 @@ class SignUpScreen extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   Gaps.v40,
-                  if (orientation == Orientation.portrait) ...[
-                    GestureDetector(
-                      onTap: () => _onEmailTap(context),
-                      child: AuthButton(
-                        icon: FaIcon(FontAwesomeIcons.user),
-                        text: "Use email & password",
-                        onTap: () {},
-                      ),
+                  AuthButton(
+                    icon: FaIcon(FontAwesomeIcons.user),
+                    text: "Use phone or email",
+                    onTap: () {
+                      _onPageTap(context, (context) => UsernameScreen());
+                    },
+                  ),
+                  Gaps.v16,
+                  AuthButton(
+                    icon: FaIcon(FontAwesomeIcons.facebook),
+                    text: "Continue with Facebook",
+                    onTap: () {},
+                  ),
+                  Gaps.v16,
+                  AuthButton(
+                    icon: const FaIcon(FontAwesomeIcons.google),
+                    text: "Continue with Google",
+                    onTap: () {},
+                  ),
+                  Gaps.v16,
+                  AuthButton(
+                    icon: const FaIcon(FontAwesomeIcons.apple),
+                    text: "Continue with Apple",
+                    onTap: () {},
+                  ),
+                  Gaps.v8,
+                  Text(
+                    "By continuing, you agree to our Terms of Service and acknowledge that you have read our Privacy Policy to learn how we collect, use, and share your data",
+                    style: TextStyle(
+                      fontSize: Sizes.size16,
+                      color: Colors.black45,
                     ),
-                    Gaps.v16,
-                    AuthButton(
-                      icon: FaIcon(FontAwesomeIcons.apple),
-                      text: "Continue with Apple",
-                      onTap: () {},
-                    ),
-                  ],
-                  if (orientation == Orientation.landscape)
-                    Row(
-                      children: [
-                        Expanded(
-                          child: GestureDetector(
-                            onTap: () => _onEmailTap(context),
-                            child: AuthButton(
-                              icon: FaIcon(FontAwesomeIcons.user),
-                              text: "Use email & password",
-                              onTap: () {},
-                            ),
-                          ),
-                        ),
-                        Gaps.h16,
-                        Expanded(
-                          child: AuthButton(
-                            icon: FaIcon(FontAwesomeIcons.apple),
-                            text: "Continue with Apple",
-                            onTap: () {},
-                          ),
-                        ),
-                      ],
-                    ),
+                    textAlign: TextAlign.center,
+                  ),
                 ],
               ),
             ),
           ),
           bottomNavigationBar: BottomAppBar(
-            color: Colors.grey.shade50,
-            elevation: 2,
+            color: Colors.grey.shade100,
+            elevation: 5,
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: Sizes.size32),
+              padding: EdgeInsets.symmetric(vertical: Sizes.size14),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Already have an account?',
-                    style: TextStyle(fontSize: Sizes.size16),
-                  ),
+                  Text("Already have an account?"),
                   Gaps.h5,
                   GestureDetector(
-                    onTap: () => _onLoginTap(context),
+                    onTap: () =>
+                        _onPageTap(context, (context) => LoginScreen()),
                     child: Text(
-                      'Log in',
-                      style: TextStyle(
-                        fontSize: Sizes.size16,
-                        fontWeight: FontWeight.w600,
-                        color: Theme.of(context).primaryColor,
-                      ),
+                      "Log in",
+                      style: TextStyle(color: Theme.of(context).primaryColor),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => Navigator.pushNamed(context, "/home"),
+                    child: Text(
+                      " / Home",
+                      style: TextStyle(color: Theme.of(context).primaryColor),
                     ),
                   ),
                 ],

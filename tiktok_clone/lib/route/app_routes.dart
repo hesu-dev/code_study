@@ -2,8 +2,8 @@
 // ignore_for_file: equal_keys_in_map
 
 import 'package:flutter/material.dart';
-import 'package:tiktok_clone/features/authetication/login_screen.dart';
-import 'package:tiktok_clone/features/authetication/sign_up.dart';
+import 'package:tiktok_clone/features/authentication/login_screen.dart';
+import 'package:tiktok_clone/features/authentication/sign_up.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 import 'package:tiktok_clone/features/onboarding/tutorial_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation.dart';
