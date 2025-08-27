@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/main_navigation/main_navigation.dart';
-import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 import 'package:tiktok_clone/route/app_routes.dart';
 
 void main() {
@@ -14,9 +12,9 @@ class TicTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: AppRoutes.mainbtnpage,
-      // routes: AppRoutes.routes,
-      home: MainNavi(),
+      initialRoute: AppRoutes.mainbtnpage,
+      routes: AppRoutes.routes,
+      // home: MainNavi(),
       debugShowCheckedModeBanner: false,
       title: 'TicTok Clone',
       theme: ThemeData(

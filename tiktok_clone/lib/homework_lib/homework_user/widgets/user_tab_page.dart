@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/mokup.dart' as mokup;
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_replie.dart';
-import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_thread.dart';
 import 'package:tiktok_clone/homework_lib/homework_user/widgets/user_set_btn.dart';
 
 class UserTabPage extends StatefulWidget {
