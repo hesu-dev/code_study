@@ -16,10 +16,12 @@ class UserTabBar extends SliverPersistentHeaderDelegate {
         ),
       ),
       child: const TabBar(
+        isScrollable: true,
         indicatorSize: TabBarIndicatorSize.label,
         indicatorColor: Colors.black,
         labelPadding: EdgeInsets.symmetric(vertical: Sizes.size10),
         labelColor: Colors.black,
+        // tabAlignment: TabAlignment.start,
         tabs: [
           Tab(text: "Threads"),
           Tab(text: "Replies"),

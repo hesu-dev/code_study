@@ -42,6 +42,8 @@ dependencies:
   go_router: ^16.1.0
   faker: ^2.2.0
   visibility_detector: ^0.4.0+2
+  camera: ^0.11.2
+  permission_handler: ^10.2.0
 
 dev_dependencies:
   flutter_test:
@@ -70,9 +72,9 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/img/onboarding1.png
-    - assets/img/onboarding2.png
-    - assets/img/placeholder.jpg
+    - assets/images/onboarding1.png
+    - assets/images/onboarding2.png
+    - assets/images/placeholder.jpg
     - assets/videos/video.mp4
     
   # An image asset can refer to one or more resolution-specific "variants", see

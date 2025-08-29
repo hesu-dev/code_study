@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/bottom_btn.dart';
+import 'package:tiktok_clone/utils.dart';
 
 enum Direction { right, left }
 
@@ -72,7 +73,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       padding: const EdgeInsets.all(Sizes.size96),
                       child: Center(
                         child: Image.asset(
-                          'assets/img/onboarding1.png',
+                          'assets/images/onboarding1.png',
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -100,7 +101,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
                       padding: const EdgeInsets.all(Sizes.size96),
                       child: Center(
                         child: Image.asset(
-                          'assets/img/onboarding2.png',
+                          'assets/images/onboarding2.png',
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -124,7 +125,7 @@ class _TutorialScreenState extends State<TutorialScreen> {
         ),
         bottomNavigationBar: BottomAppBar(
           height: 120,
-          color: Colors.white,
+          color: isDarkMode(context) ? Colors.black : Colors.white,
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             // crossAxisAlignment: CrossAxisAlignment.center,

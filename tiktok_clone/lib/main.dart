@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/main_navigation/main_navigation.dart';
 import 'package:tiktok_clone/route/app_routes.dart';
 
 void main() {
@@ -14,9 +13,9 @@ class TicTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: AppRoutes.mainbtnpage,
-      // routes: AppRoutes.routes,
-      home: MainNavigationScreen(),
+      initialRoute: AppRoutes.mainbtnpage,
+      routes: AppRoutes.routes,
+      // home: MainNavi(),
       debugShowCheckedModeBanner: false,
       title: 'TicTok Clone',
       themeMode: ThemeMode.system,
@@ -57,15 +56,25 @@ class TicTokApp extends StatelessWidget {
           cursorColor: Color(0xFFE9435A),
         ),
         appBarTheme: const AppBarTheme(
-          // backgroundColor: Color.fromARGB(255, 255, 15, 15),
+          color: Colors.white,
           titleTextStyle: TextStyle(
             color: Colors.black,
             fontSize: Sizes.size16 + Sizes.size2,
             fontWeight: FontWeight.w600,
           ),
         ),
+        tabBarTheme: TabBarThemeData(
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey.shade500,
+          indicatorColor: Colors.black,
+          indicatorSize: TabBarIndicatorSize.tab,
+        ),
       ),
       darkTheme: ThemeData(
+        tabBarTheme: const TabBarThemeData(indicatorColor: Colors.white),
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Color(0xFFE9435A),
+        ),
         textTheme: GoogleFonts.itimTextTheme(
           ThemeData(brightness: Brightness.dark).textTheme,
         ),

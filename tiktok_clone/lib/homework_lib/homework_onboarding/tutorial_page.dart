@@ -72,7 +72,7 @@ class _TutorialPageState extends State<TutorialPage> {
                       padding: const EdgeInsets.all(Sizes.size96),
                       child: Center(
                         child: Image.asset(
-                          'assets/img/onboarding1.png',
+                          'assets/images/onboarding1.png',
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -100,7 +100,7 @@ class _TutorialPageState extends State<TutorialPage> {
                       padding: const EdgeInsets.all(Sizes.size96),
                       child: Center(
                         child: Image.asset(
-                          'assets/img/onboarding2.png',
+                          'assets/images/onboarding2.png',
                           fit: BoxFit.contain,
                         ),
                       ),

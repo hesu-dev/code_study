@@ -25,7 +25,7 @@ class _CustomScrollViewScreenState extends State<CustomScrollViewScreen> {
               StretchMode.fadeTitle,
             ],
             background: Image.asset(
-              "assets/img/placeholder.jpg",
+              "assets/images/placeholder.jpg",
               fit: BoxFit.cover,
             ),
             title: const Text("Hello!"),
