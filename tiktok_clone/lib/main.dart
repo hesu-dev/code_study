@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/videos/video_recording_screen.dart';
 import 'package:tiktok_clone/route/app_routes.dart';
 
 void main() {
@@ -14,11 +13,11 @@ class TicTokApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: AppRoutes.mainbtnpage,
-      // routes: AppRoutes.routes,
-      home: VideoRecordingScreen(),
+      initialRoute: AppRoutes.mainbtnpage,
+      routes: AppRoutes.routes,
+      // home: VideoRecordingScreen(),
       debugShowCheckedModeBanner: false,
-      title: 'TicTok Clone',
+      title: 'TicTok',
       themeMode: ThemeMode.system,
       theme: ThemeData(
         // textTheme: TextTheme(

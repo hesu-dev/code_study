@@ -7,6 +7,7 @@ import 'package:tiktok_clone/features/authentication/sign_up.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 import 'package:tiktok_clone/features/onboarding/tutorial_screen.dart';
 import 'package:tiktok_clone/features/main_navigation/main_navigation.dart';
+import 'package:tiktok_clone/features/videos/video_recording_screen.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/password_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
@@ -37,8 +38,8 @@ class AppRoutes {
   // static const String cookie = '/cookie';
 
   static Map<String, WidgetBuilder> routes = {
-    mainbtnpage: (context) => MainBtnPage(),
-
+    // mainbtnpage: (context) => MainBtnPage(),
+    mainbtnpage: (context) => VideoRecordingScreen(),
     //클론
     home: (context) => MainNavigationScreen(),
     signup: (context) => const SignUpScreen(),
