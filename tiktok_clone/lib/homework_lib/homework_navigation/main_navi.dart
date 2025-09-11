@@ -10,6 +10,7 @@ import 'package:tiktok_clone/homework_lib/homework_navigation/post_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/search_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_write_sheet.dart';
 import 'package:tiktok_clone/homework_lib/homework_user/user_profile_page.dart';
+import 'package:tiktok_clone/utils.dart' show isDarkMode;
 
 class MainNavi extends StatefulWidget {
   const MainNavi({super.key});
@@ -36,10 +37,11 @@ class _MainNaviState extends State<MainNavi> {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = isDarkMode(context);
     if (_seletedIndex == 2) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         showModalBottomSheet(
-          backgroundColor: Colors.white,
+          backgroundColor: isDark ? Colors.black : Colors.white,
           context: context,
           isScrollControlled: false,
           showDragHandle: true,

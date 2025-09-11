@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:gallery_saver/gallery_saver.dart';
+import 'package:gal/gal.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPreviewScreen extends StatefulWidget {
@@ -43,10 +43,20 @@ class _VideoPreviewScreenState extends State<VideoPreviewScreen> {
     _initVideo();
   }
 
+  @override
+  void dispose() {
+    _videoPlayerController.dispose();
+    super.dispose();
+  }
+
   Future<void> _saveToGallery() async {
     if (_savedVideo) return;
 
-    await GallerySaver.saveVideo(widget.video.path, albumName: "video_Study");
+    // await GallerySaver.saveVideo(
+    //   widget.video.path,
+    //   albumName: "TikTok Clone!",
+    // );
+    await Gal.putVideo(widget.video.path, album: "TikTok Clone!");
 
     _savedVideo = true;
 

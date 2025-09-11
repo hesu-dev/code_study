@@ -12,6 +12,7 @@ import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dar
 import 'package:tiktok_clone/homework_lib/homework_authetication/password_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/sign_up_screen.dart';
+import 'package:tiktok_clone/homework_lib/homework_camera/picture_recording_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 import 'package:tiktok_clone/homework_lib/homework_onboarding/interests_page.dart';
 import 'package:tiktok_clone/main_btn_page.dart';
@@ -24,6 +25,7 @@ class AppRoutes {
   static const String login = '/login';
   static const String interest = '/interest';
   static const String tutorial = '/tutorial';
+  static const String camera = '/camera';
 
   //숙제용
   static String hwhome = '/hwhome';
@@ -33,19 +35,21 @@ class AppRoutes {
   static const String pinNumber = '/pinNumber';
   static const String password = '/password';
   static const String hwinteres = '/hwinteres';
+  static const String hwcamera = '/hwcamera';
   // static const String terms = '/terms';
   // static const String privacy = '/privacy';
   // static const String cookie = '/cookie';
 
   static Map<String, WidgetBuilder> routes = {
-    // mainbtnpage: (context) => MainBtnPage(),
-    mainbtnpage: (context) => VideoRecordingScreen(),
+    mainbtnpage: (context) => MainBtnPage(),
+    // mainbtnpage: (context) => VideoRecordingScreen(),
     //클론
     home: (context) => MainNavigationScreen(),
     signup: (context) => const SignUpScreen(),
     interest: (context) => const InterestsScreen(),
     tutorial: (context) => const TutorialScreen(),
     login: (context) => const LoginScreen(),
+    camera: (context) => const VideoRecordingScreen(),
 
     //숙제용
     hwhome: (context) => MainNavi(),
@@ -61,6 +65,7 @@ class AppRoutes {
     },
     password: (context) => const PasswordPage(),
     hwinteres: (context) => const InterestsPage(),
+    hwcamera: (context) => const PictureRecordingPage(),
     // terms: (context) => const TermsPage(),
     // privacy: (context) => const PrivacyPage(),
     // cookie: (context) => const CookiePage(),

@@ -4,9 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:faker/faker.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
+import 'package:tiktok_clone/homework_lib/homework_camera/picture_recording_page.dart';
 
 class PostWriteSheet extends StatelessWidget {
   const PostWriteSheet({super.key});
+
+  void _onWritePageTap(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => const PictureRecordingPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +68,12 @@ class PostWriteSheet extends StatelessWidget {
                   ),
                 ],
               ),
-              IconButton(icon: const Icon(Icons.attach_file), onPressed: () {}),
+              IconButton(
+                icon: const Icon(Icons.attach_file),
+                onPressed: () {
+                  _onWritePageTap(context);
+                },
+              ),
               const SizedBox(height: 16),
               Align(
                 alignment: Alignment.centerRight,
