@@ -293,22 +293,22 @@ final privacyList = [
   const {
     "icon": FontAwesomeIcons.bell,
     "title": "알림 멘션",
-    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
   },
   const {
     "icon": FontAwesomeIcons.bellSlash,
     "title": "뮤트 목록",
-    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
   },
   const {
     "icon": FontAwesomeIcons.eyeSlash,
     "title": "뮤트 단어",
-    "trailing": const Icon(Icons.arrow_forward_ios, size: 16),
+    "trailing": Icon(Icons.arrow_forward_ios, size: 16),
   },
   const {
     "icon": null,
     "title": "기타 개인 정보",
-    "trailing": const FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
+    "trailing": FaIcon(FontAwesomeIcons.arrowUpRightFromSquare),
   },
 
   const {

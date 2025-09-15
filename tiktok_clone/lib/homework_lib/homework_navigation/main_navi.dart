@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
+import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/activity_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_nav_tab.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/post_page.dart';
@@ -29,19 +31,17 @@ class _MainNaviState extends State<MainNavi> {
       if (_seletedIndex != 2) {
         _lastIndex = _seletedIndex;
       }
-      // print(_seletedIndex);
     });
   }
 
-  //https://m3.material.io/components/navigation-bar/overview
-
   @override
   Widget build(BuildContext context) {
-    final isDark = isDarkMode(context);
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
+    // final isDark = isDarkMode(context);
     if (_seletedIndex == 2) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         showModalBottomSheet(
-          backgroundColor: isDark ? Colors.black : Colors.white,
+          backgroundColor: themeProvider.iconColor,
           context: context,
           isScrollControlled: false,
           showDragHandle: true,
@@ -68,8 +68,9 @@ class _MainNaviState extends State<MainNavi> {
     return Scaffold(
       appBar: PersonalAppbar(back: false, title: "로고"),
       body: screens[_seletedIndex],
+      backgroundColor: themeProvider.bgColor,
       bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
+        color: themeProvider.bgColor,
         child: Padding(
           padding: EdgeInsetsGeometry.all(Sizes.size2),
           child: Row(

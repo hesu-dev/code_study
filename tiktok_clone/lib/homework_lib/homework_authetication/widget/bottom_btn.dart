@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
 
 class BottomBtn extends StatelessWidget {
   const BottomBtn(this.text, this.color, {super.key, required this.onTap});
@@ -10,6 +12,7 @@ class BottomBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return GestureDetector(
       onTap: onTap,
       child: Padding(

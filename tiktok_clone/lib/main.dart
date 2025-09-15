@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
 import 'package:tiktok_clone/route/app_routes.dart';
 
 void main() {
-  runApp(const TicTokApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => ThemeProvider(),
+      child: const TicTokApp(),
+    ),
+  );
 }
 
 class TicTokApp extends StatelessWidget {

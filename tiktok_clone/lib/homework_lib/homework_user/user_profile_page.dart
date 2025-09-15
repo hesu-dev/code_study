@@ -1,8 +1,10 @@
 import 'package:faker/faker.dart' as f;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
 import 'package:tiktok_clone/homework_lib/homework_user/widgets/user_setting.dart';
 import 'package:tiktok_clone/homework_lib/homework_user/widgets/user_tab_bar.dart';
 import 'package:tiktok_clone/homework_lib/homework_user/widgets/user_tab_page.dart';
@@ -30,6 +32,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
   Widget build(BuildContext context) {
     String avatarLink = f.faker.image.image(random: true);
     String userName = "Nell";
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -52,7 +55,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                   ),
                   IconButton(
                     onPressed: () {
-                      print('test');
+                      // print('test');
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => UserSettingPage()),
@@ -186,11 +189,12 @@ class _UserProfilePageState extends State<UserProfilePage> {
                           children: [
                             Row(
                               children: [
-                                const Text(
+                                Text(
                                   "999K",
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     fontSize: Sizes.size18,
+                                    color: themeProvider.textColor,
                                   ),
                                 ),
                                 Gaps.h5,

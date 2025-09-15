@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_bottom_sheet.dart';
 
 // ignore: unused_element
@@ -21,6 +23,7 @@ class PostHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     final textStyle = Theme.of(context).textTheme.bodyMedium!;
     return Row(
       children: [
@@ -48,7 +51,10 @@ class PostHeader extends StatelessWidget {
         Expanded(
           child: Text(
             username,
-            style: textStyle.copyWith(fontWeight: FontWeight.w700),
+            style: textStyle.copyWith(
+              fontWeight: FontWeight.w700,
+              color: themeProvider.textColor,
+            ),
           ),
         ),
         Row(

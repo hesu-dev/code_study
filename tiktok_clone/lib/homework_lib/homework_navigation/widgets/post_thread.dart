@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_header.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/widgets/post_replie.dart';
+
+import '../../homework_common/theme_provider.dart';
 
 class ThreadPost extends StatelessWidget {
   const ThreadPost({
@@ -29,6 +32,7 @@ class ThreadPost extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context, listen: false);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
       child: Column(
@@ -42,7 +46,7 @@ class ThreadPost extends StatelessWidget {
             minutesAgo: minutes,
           ),
           const SizedBox(height: 8),
-          Text(text),
+          Text(text, style: TextStyle(color: themeProvider.textColor)),
           const SizedBox(height: 10),
           mediaUrl != null ? Media(url: mediaUrl!) : Container(),
           const SizedBox(height: 10),
