@@ -8,6 +8,8 @@ import 'package:tiktok_clone/homework_lib/homework_authetication/widget/bottom_b
 // import 'package:tiktok_clone/constants/mokup.dart';
 
 class InterestsScreen extends StatefulWidget {
+  static const String routeName = "interests";
+  static const String routeURL = "/tutorial";
   const InterestsScreen({super.key});
 
   @override

@@ -4,6 +4,8 @@ import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/inbox/chat_detail_screen.dart';
 
 class ChatsScreen extends StatefulWidget {
+  static const String routeName = "chats";
+  static const String routeURL = "/chats";
   const ChatsScreen({super.key});
 
   @override
@@ -39,9 +41,11 @@ class _ChatsScreenState extends State<ChatsScreen> {
   }
 
   void _onChatTap() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const ChatDetailScreen()));
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const ChatDetailScreen(chatId: '1'),
+      ),
+    );
   }
 
   Widget _makeTile(int index) {

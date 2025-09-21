@@ -3,11 +3,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/features/authentication/login_screen.dart';
-import 'package:tiktok_clone/features/authentication/sign_up.dart';
+import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 import 'package:tiktok_clone/features/onboarding/tutorial_screen.dart';
-import 'package:tiktok_clone/common/widgets/main_navigation/main_navigation.dart';
-import 'package:tiktok_clone/features/videos/video_recording_screen.dart';
+import 'package:tiktok_clone/common/widgets/main_navigation/main_navigation_screen.dart';
+import 'package:tiktok_clone/features/videos/views/video_recording_screen.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/password_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
@@ -44,7 +44,7 @@ class AppRoutes {
     mainbtnpage: (context) => MainBtnPage(),
     // mainbtnpage: (context) => VideoRecordingScreen(),
     //클론
-    home: (context) => MainNavigationScreen(),
+    home: (context) => MainNavigationScreen(tab: '0'),
     signup: (context) => const SignUpScreen(),
     interest: (context) => const InterestsScreen(),
     tutorial: (context) => const TutorialScreen(),
