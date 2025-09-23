@@ -1,4 +1,4 @@
-import 'package:animations_app/screens/implicit_animations_screen.dart';
+import 'package:animations_app/home_lib/implicit_animations_screen.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
