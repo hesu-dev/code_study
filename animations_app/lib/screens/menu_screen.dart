@@ -30,6 +30,12 @@ class MenuScreen extends StatelessWidget {
               },
               child: const Text('Explicit Animations'),
             ),
+            ElevatedButton(
+              onPressed: () {
+                _goToPage(context, const BlinkingGrid());
+              },
+              child: const Text('homework'),
+            ),
           ],
         ),
       ),
