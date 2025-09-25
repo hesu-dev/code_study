@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_common/theme_provider.dart';
-import 'package:tiktok_clone/route/app_routes.dart';
-
+// import 'package:tiktok_clone/route/app_routes.dart';
+import 'package:tiktok_clone/route/router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
   runApp(
     ChangeNotifierProvider(
       create: (_) => ThemeProvider(),
@@ -25,9 +30,13 @@ class TicTokApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: AppRoutes.mainbtnpage,
-      routes: AppRoutes.routes,
+    final container = ProviderContainer();
+    final router = container.read(routerProvider);
+
+    return MaterialApp.router(
+      // initialRoute: AppRoutes.mainbtnpage,
+      // routes: AppRoutes.routes,
+      routerConfig: router,
       // home: VideoRecordingScreen(),
       debugShowCheckedModeBanner: false,
       title: 'TicTok',

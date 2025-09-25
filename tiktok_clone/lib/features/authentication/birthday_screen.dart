@@ -1,18 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/view_models/signup_view_model.dart';
 import 'package:tiktok_clone/features/authentication/widgets/form_btn.dart';
 import 'package:tiktok_clone/features/onboarding/interests_screen.dart';
 
-class BirthdayScreen extends StatefulWidget {
+class BirthdayScreen extends ConsumerStatefulWidget {
   const BirthdayScreen({super.key});
 
   @override
-  State<BirthdayScreen> createState() => _BirthdayScreenState();
+  ConsumerState<BirthdayScreen> createState() => _BirthdayScreenState();
 }
 
-class _BirthdayScreenState extends State<BirthdayScreen> {
+class _BirthdayScreenState extends ConsumerState<BirthdayScreen> {
   final TextEditingController _birthDayController = TextEditingController();
 
   DateTime initialDate = DateTime.now();
@@ -35,16 +37,21 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   void _onNextPageTap() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => const InterestsScreen()));
+    // print('--------');
+    // print(ref.read(signUpForm));
+    // print(ref.read(signUpProvider));
+    // Navigator.of(
+    //   context,
+    // ).push(MaterialPageRoute(builder: (context) => const InterestsScreen()));
+    ref.read(signUpProvider.notifier).signUp();
+    // context.goNamed(InterestsScreen.routeName);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white, title: Text("Sign Up(1)")),
+      appBar: AppBar(backgroundColor: Colors.white, title: Text("Sign Up(4)")),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Sizes.size28),
         child: Column(
@@ -85,7 +92,7 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
               onTap: () {
                 _onNextPageTap();
               },
-              child: FormButton(disable: false),
+              child: FormButton(disable: ref.watch(signUpProvider).isLoading),
             ),
           ],
         ),

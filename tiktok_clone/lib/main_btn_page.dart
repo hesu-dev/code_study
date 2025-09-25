@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_clone/features/authentication/sign_up_screen.dart';
+import 'package:tiktok_clone/homework_lib/homework_authetication/signForm.dart';
 import 'package:tiktok_clone/homework_lib/homework_navigation/main_navi.dart';
 
 class MainBtnPage extends StatelessWidget {
+  static const String routeName = 'mainBtnPage';
+  static const String routeURL = '/mainBtnPage';
+
   const MainBtnPage({super.key});
 
   @override
@@ -55,6 +59,10 @@ class MainBtnPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(builder: (context) => const MainNavi()),
                   );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const Signform()),
+                  // );
                 },
                 child: const Text("숙제용", style: TextStyle(fontSize: 18)),
               ),

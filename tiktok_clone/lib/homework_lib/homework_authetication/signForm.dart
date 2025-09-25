@@ -2,20 +2,21 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/number_page.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/switchcheck.dart';
 import 'package:tiktok_clone/homework_lib/homework_authetication/widget/appbar.dart';
 
-class Signform extends StatefulWidget {
+class Signform extends ConsumerStatefulWidget {
   const Signform({super.key});
 
   @override
-  State<Signform> createState() => _SignformState();
+  ConsumerState<Signform> createState() => _SignformState();
 }
 
-class _SignformState extends State<Signform> {
+class _SignformState extends ConsumerState<Signform> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _birtdayController = TextEditingController();
