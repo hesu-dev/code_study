@@ -1,4 +1,6 @@
-import 'package:animations_app/home_lib/implicit_animations_screen.dart';
+import 'package:animations_app/home_lib/homework_250924.dart';
+import 'package:animations_app/screens/explicit_animations_screen.dart';
+import 'package:animations_app/screens/implicit_animations_screen.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -17,9 +19,16 @@ class MenuScreen extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () {
+                //_goToPage(context, const ImplicitAnimationsScreen());
                 _goToPage(context, const ImplicitAnimationsScreen());
               },
               child: const Text('Implicit Animations'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _goToPage(context, const ExplicitAnimationsScreen());
+              },
+              child: const Text('Explicit Animations'),
             ),
           ],
         ),
