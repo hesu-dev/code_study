@@ -1,34 +1,26 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:nomade_finalproject/authentication/view_models/signup_view_model.dart';
+import 'package:nomade_finalproject/authentication/sign_up_page.dart';
 import 'package:nomade_finalproject/constants/btn.dart';
 import 'package:nomade_finalproject/constants/text.dart';
 import 'package:nomade_finalproject/post/home.dart';
 
-class SignUpPage extends ConsumerStatefulWidget {
-  const SignUpPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  ConsumerState<SignUpPage> createState() => _SignUpPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignUpPageState extends ConsumerState<SignUpPage> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailCtrl = TextEditingController();
   final _pwCtrl = TextEditingController();
-  final _pwConfirmCtrl = TextEditingController();
-  String mail_txt = "";
-  String password_txt = "";
   bool _obscure = true;
-  bool _obscureConfirm = true;
 
   @override
   void dispose() {
     _emailCtrl.dispose();
     _pwCtrl.dispose();
-    _pwConfirmCtrl.dispose();
     super.dispose();
   }
 
@@ -45,35 +37,17 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
     return null;
   }
 
-  String? _pwConfirmValidator(String? val) {
-    if (val == null || val.isEmpty) return '비밀번호 확인을 입력하세요.';
-    if (val != _pwCtrl.text) return '비밀번호가 일치하지 않습니다.';
-    return null;
-  }
-
-  void _onCreateAccount() async {
-    mail_txt = _emailCtrl.text;
-    password_txt = _pwCtrl.text;
-
-    if (_formKey.currentState!.validate()) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text('계정 생성 중..: ${_emailCtrl.text}')));
-    }
-
-    ref.read(signUpForm.notifier).state = {
-      "email": mail_txt,
-      "password": password_txt,
-    };
-
-    // print('--------');
-    // print(ref.read(signUpForm));
-    // print(ref.read(signUpProvider));
-    await ref.read(signUpProvider.notifier).signUp();
-
+  void _onLogin() {
     Navigator.of(
       context,
     ).pushReplacement(MaterialPageRoute(builder: (_) => const HomePage()));
+
+    // if (_formKey.currentState!.validate()) {
+    //   // TODO: 실제 로그인 로직 (API 호출 등)을 여기에 연결
+    //   ScaffoldMessenger.of(
+    //     context,
+    //   ).showSnackBar(SnackBar(content: Text('로그인 시도: ${_emailCtrl.text}')));
+    // }
   }
 
   @override
@@ -83,6 +57,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
       body: SafeArea(
         child: Column(
           children: [
+            // 로고 및 상단 여백
             const SizedBox(height: 24),
             Center(
               child: Row(
@@ -101,6 +76,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
             ),
             const SizedBox(height: 36),
 
+            // 폼 영역
             Expanded(
               child: SingleChildScrollView(
                 child: Form(
@@ -108,7 +84,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                   child: Column(
                     children: [
                       const Text(
-                        'Join!',
+                        'Welcome!',
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
@@ -126,6 +102,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                                     'Email',
                                   ),
                               validator: _emailValidator,
+                              keyboardType: TextInputType.emailAddress,
                             ),
                             const SizedBox(height: 12),
                             TextFormField(
@@ -147,32 +124,11 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                               obscureText: _obscure,
                               validator: _pwValidator,
                             ),
-                            const SizedBox(height: 12),
-                            TextFormField(
-                              controller: _pwConfirmCtrl,
-                              decoration:
-                                  InputDecorationText.buildInputDecoration(
-                                    'Confirm Password',
-                                  ).copyWith(
-                                    suffixIcon: IconButton(
-                                      icon: Icon(
-                                        _obscureConfirm
-                                            ? Icons.visibility_off
-                                            : Icons.visibility,
-                                      ),
-                                      onPressed: () => setState(
-                                        () =>
-                                            _obscureConfirm = !_obscureConfirm,
-                                      ),
-                                    ),
-                                  ),
-                              obscureText: _obscureConfirm,
-                              validator: _pwConfirmValidator,
-                            ),
                             const SizedBox(height: 18),
+                            // Enter 버튼 (핑크)
                             Btn.pinkButtonWidget(
-                              text: 'Create Account',
-                              onTap: _onCreateAccount,
+                              text: 'Enter',
+                              onTap: _onLogin,
                               horizontalPadding: 32,
                               verticalPadding: 12,
                             ),
@@ -187,14 +143,19 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
                             Align(
                               alignment: Alignment.center,
                               child: Btn.pinkButtonWidget(
-                                text: 'Log in →',
+                                text: 'Create an account →',
                                 onTap: () {
-                                  Navigator.of(context).pop();
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (_) => const SignUpPage(),
+                                    ),
+                                  );
                                 },
                                 horizontalPadding: 26,
                                 verticalPadding: 12,
                               ),
                             ),
+                            const SizedBox(height: 18),
                           ],
                         ),
                       ),

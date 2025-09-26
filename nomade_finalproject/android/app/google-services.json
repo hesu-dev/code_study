@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "529215388953",
+    "project_id": "nomadefinalproject",
+    "storage_bucket": "nomadefinalproject.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529215388953:android:bcf87b4e8ace6e7c005988",
+        "android_client_info": {
+          "package_name": "com.example.nomade_finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf7ZP8cmCUTqmwGWxi-pD21KmFJ4n6Pto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
