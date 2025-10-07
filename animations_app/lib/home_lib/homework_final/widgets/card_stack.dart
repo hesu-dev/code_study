@@ -8,6 +8,20 @@ class CardStack extends StatelessWidget {
 
   const CardStack({super.key, required this.controller, required this.onTap});
 
+  void _onTap(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (_, animation, __) {
+          return FadeTransition(
+            opacity: animation,
+            child: const DetailScreen(),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,6 +52,23 @@ class CardStack extends StatelessWidget {
             ],
           ),
         ),
+        Positioned(
+          top: 40,
+          left: 0,
+          right: 0,
+          child: Center(
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_upward,
+                color: Colors.white,
+                size: 32,
+              ),
+              onPressed: () {
+                onTap;
+              },
+            ),
+          ),
+        ),
         PageView.builder(
           controller: controller.mainController,
           onPageChanged: (i) => controller.syncPages(i.toDouble()),
@@ -46,17 +77,8 @@ class CardStack extends StatelessWidget {
               onVerticalDragEnd: (details) {
                 if (details.primaryVelocity != null &&
                     details.primaryVelocity! < 0) {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      pageBuilder: (_, animation, __) {
-                        return FadeTransition(
-                          opacity: animation,
-                          child: const DetailScreen(),
-                        );
-                      },
-                    ),
-                  );
+                  _onTap(context);
+                  // onTap;
                 }
               },
               child: Card(
