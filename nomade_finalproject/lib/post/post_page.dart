@@ -32,7 +32,7 @@ class _PostPageState extends State<PostPage> {
         elevation: 0,
         centerTitle: true,
         title: const Text(
-          "🔥 MOOD 🔥",
+          "🔥 MOOD 트래커 🔥",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),

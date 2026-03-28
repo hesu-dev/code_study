@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:nomade_finalproject/authentication/sign_up_page.dart';
+import 'package:nomade_finalproject/authentication/view_models/login_view_model.dart';
 import 'package:nomade_finalproject/constants/btn.dart';
 import 'package:nomade_finalproject/constants/text.dart';
 import 'package:nomade_finalproject/post/home.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final _emailCtrl = TextEditingController();
   final _pwCtrl = TextEditingController();
@@ -38,16 +40,15 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _onLogin() {
-    Navigator.of(
-      context,
-    ).pushReplacement(MaterialPageRoute(builder: (_) => const HomePage()));
-
-    // if (_formKey.currentState!.validate()) {
-    //   // TODO: 실제 로그인 로직 (API 호출 등)을 여기에 연결
-    //   ScaffoldMessenger.of(
-    //     context,
-    //   ).showSnackBar(SnackBar(content: Text('로그인 시도: ${_emailCtrl.text}')));
-    // }
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      ref
+          .read(loginProvider.notifier)
+          .login(formData["email"]!, formData["password"]!, context);
+      // ScaffoldMessenger.of(
+      //   context,
+      // ).showSnackBar(SnackBar(content: Text('로그인 시도: ${_emailCtrl.text}')));
+    }
   }
 
   @override
